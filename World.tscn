@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://World.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="World"]
+scale = Vector2( 0.3, 0.3 )
+tile_set = ExtResource( 1 )
+format = 1
+
+[node name="SpinBox" type="SpinBox" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -95.3574
+margin_top = 20.0226
+margin_right = -21.3574
+margin_bottom = 44.0226
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="SpinBox" to="World" method="_on_SpinBox_value_changed"]

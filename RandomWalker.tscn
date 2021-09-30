@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Homogeneo.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Gaussiano.gd" type="Script" id=3]
+
+[node name="RandomWalker" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineH" type="Line2D" parent="."]
+width = 3.0
+default_color = Color( 0.4, 0.501961, 1, 0.690196 )
+
+[node name="LineR" type="Line2D" parent="."]
+width = 3.0
+
+[node name="Homogeneo" type="KinematicBody2D" parent="."]
+position = Vector2( 290.995, 290.995 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Homogeneo"]
+texture = ExtResource( 2 )
+
+[node name="Gaussiano" type="KinematicBody2D" parent="."]
+position = Vector2( 716.809, 281.651 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Gaussiano"]
+modulate = Color( 0.243137, 0.956863, 0.490196, 1 )
+texture = ExtResource( 2 )
