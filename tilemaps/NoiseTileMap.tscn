@@ -2,7 +2,7 @@
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://TileSet.tres" type="TileSet" id=2]
-[ext_resource path="res://look/GradientMap.gdshader" type="Shader" id=3]
+[ext_resource path="res://look/GradientMap.shader" type="Shader" id=3]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.538462, 1 )
