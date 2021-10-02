@@ -1,0 +1,288 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://TetrisShuffleBag.gd" type="Script" id=1]
+[ext_resource path="res://assets/tetris/I.png" type="Texture" id=2]
+[ext_resource path="res://assets/tetris/T.png" type="Texture" id=3]
+[ext_resource path="res://assets/tetris/O.png" type="Texture" id=4]
+[ext_resource path="res://assets/tetris/S.png" type="Texture" id=5]
+[ext_resource path="res://assets/tetris/Z.png" type="Texture" id=6]
+[ext_resource path="res://assets/tetris/L.png" type="Texture" id=7]
+[ext_resource path="res://assets/tetris/J.png" type="Texture" id=8]
+[ext_resource path="res://look/GradientMagenta.tres" type="Texture" id=9]
+[ext_resource path="res://look/GradientMap.gdshader" type="Shader" id=10]
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 10 )
+shader_param/mix_amount = 1.0
+shader_param/gradient = ExtResource( 9 )
+
+[sub_resource type="OpenSimplexNoise" id=6]
+octaves = 2
+
+[sub_resource type="NoiseTexture" id=7]
+width = 1024
+height = 600
+noise = SubResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.92549, 0.956863, 0.00392157, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.92549, 0.956863, 0.00392157, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="TetrisShuffleBag" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.25995
+margin_right = -1.25995
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="TextureRect" parent="."]
+material = SubResource( 9 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Centro" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -150.0
+margin_right = 512.0
+margin_bottom = 150.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="box" type="Container" parent="Centro"]
+margin_right = 1024.0
+
+[node name="Bag" type="ProgressBar" parent="Centro/box"]
+margin_left = 490.0
+margin_right = 790.0
+margin_bottom = 14.0
+grow_horizontal = 0
+rect_scale = Vector2( -1, 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+
+[node name="Pieza" type="AnimatedSprite" parent="Centro/box"]
+position = Vector2( 512, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+
+[node name="Rng" type="ProgressBar" parent="Centro/box"]
+margin_left = 532.0
+margin_right = 832.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+step = 1.0
+percent_visible = false
+
+[node name="box2" type="Container" parent="Centro"]
+margin_top = 50.0
+margin_right = 1024.0
+margin_bottom = 50.0
+
+[node name="Bag" type="ProgressBar" parent="Centro/box2"]
+margin_left = 490.0
+margin_right = 790.0
+margin_bottom = 14.0
+grow_horizontal = 0
+rect_scale = Vector2( -1, 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+
+[node name="Pieza" type="AnimatedSprite" parent="Centro/box2"]
+position = Vector2( 512, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+frame = 1
+
+[node name="Rng" type="ProgressBar" parent="Centro/box2"]
+margin_left = 532.0
+margin_right = 832.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+step = 1.0
+percent_visible = false
+
+[node name="box3" type="Container" parent="Centro"]
+margin_top = 100.0
+margin_right = 1024.0
+margin_bottom = 100.0
+
+[node name="Bag" type="ProgressBar" parent="Centro/box3"]
+margin_left = 490.0
+margin_right = 790.0
+margin_bottom = 14.0
+grow_horizontal = 0
+rect_scale = Vector2( -1, 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+
+[node name="Pieza" type="AnimatedSprite" parent="Centro/box3"]
+position = Vector2( 512, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+frame = 2
+
+[node name="Rng" type="ProgressBar" parent="Centro/box3"]
+margin_left = 532.0
+margin_right = 832.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+step = 1.0
+percent_visible = false
+
+[node name="box4" type="Container" parent="Centro"]
+margin_top = 150.0
+margin_right = 1024.0
+margin_bottom = 150.0
+
+[node name="Bag" type="ProgressBar" parent="Centro/box4"]
+margin_left = 490.0
+margin_right = 790.0
+margin_bottom = 14.0
+grow_horizontal = 0
+rect_scale = Vector2( -1, 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+
+[node name="Pieza" type="AnimatedSprite" parent="Centro/box4"]
+position = Vector2( 512, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+frame = 3
+
+[node name="Rng" type="ProgressBar" parent="Centro/box4"]
+margin_left = 532.0
+margin_right = 832.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+step = 1.0
+percent_visible = false
+
+[node name="box5" type="Container" parent="Centro"]
+margin_top = 200.0
+margin_right = 1024.0
+margin_bottom = 200.0
+
+[node name="Bag" type="ProgressBar" parent="Centro/box5"]
+margin_left = 490.0
+margin_right = 790.0
+margin_bottom = 14.0
+grow_horizontal = 0
+rect_scale = Vector2( -1, 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+
+[node name="Pieza" type="AnimatedSprite" parent="Centro/box5"]
+position = Vector2( 512, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+frame = 4
+
+[node name="Rng" type="ProgressBar" parent="Centro/box5"]
+margin_left = 532.0
+margin_right = 832.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+step = 1.0
+percent_visible = false
+
+[node name="box6" type="Container" parent="Centro"]
+margin_top = 250.0
+margin_right = 1024.0
+margin_bottom = 250.0
+
+[node name="Bag" type="ProgressBar" parent="Centro/box6"]
+margin_left = 490.0
+margin_right = 790.0
+margin_bottom = 14.0
+grow_horizontal = 0
+rect_scale = Vector2( -1, 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+
+[node name="Pieza" type="AnimatedSprite" parent="Centro/box6"]
+position = Vector2( 512, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+frame = 5
+
+[node name="Rng" type="ProgressBar" parent="Centro/box6"]
+margin_left = 532.0
+margin_right = 832.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+step = 1.0
+percent_visible = false
+
+[node name="box7" type="Container" parent="Centro"]
+margin_top = 300.0
+margin_right = 1024.0
+margin_bottom = 300.0
+
+[node name="Bag" type="ProgressBar" parent="Centro/box7"]
+margin_left = 490.0
+margin_right = 790.0
+margin_bottom = 14.0
+grow_horizontal = 0
+rect_scale = Vector2( -1, 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+
+[node name="Pieza" type="AnimatedSprite" parent="Centro/box7"]
+position = Vector2( 512, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+frame = 6
+
+[node name="Rng" type="ProgressBar" parent="Centro/box7"]
+margin_left = 532.0
+margin_right = 832.0
+margin_bottom = 14.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+step = 1.0
+percent_visible = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

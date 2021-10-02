@@ -1,0 +1,38 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/tetris/I.png" type="Texture" id=1]
+[ext_resource path="res://assets/tetris/T.png" type="Texture" id=2]
+[ext_resource path="res://tetris/Pieza.gd" type="Script" id=3]
+[ext_resource path="res://assets/tetris/O.png" type="Texture" id=4]
+[ext_resource path="res://assets/tetris/S.png" type="Texture" id=5]
+[ext_resource path="res://assets/tetris/Z.png" type="Texture" id=6]
+[ext_resource path="res://assets/tetris/L.png" type="Texture" id=7]
+[ext_resource path="res://assets/tetris/J.png" type="Texture" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Pieza" type="Area2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]

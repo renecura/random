@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "PoissonRNG",
 "language": "GDScript",
 "path": "res://PoissonRNG.gd"
+}, {
+"base": "Reference",
+"class": "ShuffleBag",
+"language": "GDScript",
+"path": "res://ShuffleBag.gd"
 } ]
 _global_script_class_icons={
-"PoissonRNG": ""
+"PoissonRNG": "",
+"ShuffleBag": ""
 }
 
 [application]

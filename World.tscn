@@ -18,7 +18,7 @@ scale = Vector2( 0.3, 0.3 )
 tile_set = ExtResource( 1 )
 format = 1
 
-[node name="SpinBox" type="SpinBox" parent="."]
+[node name="Thershold" type="SpinBox" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -95.3574
@@ -32,4 +32,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="value_changed" from="SpinBox" to="World" method="_on_SpinBox_value_changed"]
+[connection signal="value_changed" from="Thershold" to="World" method="_on_SpinBox_value_changed"]
